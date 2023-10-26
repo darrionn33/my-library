@@ -60,7 +60,7 @@ body > button > svg {
   position: absolute;
   top: 0;
   left: 0;
-  width: min(900dvw, 500px);
+  width: min(90dvw, 500px);
   background-color: #fff;
   height: 100dvh;
   flex-direction: column;
