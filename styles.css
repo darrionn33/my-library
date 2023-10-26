@@ -1,0 +1,150 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background-color: inherit;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  gap: 40px;
+}
+body > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: green;
+  color: floralwhite;
+  fill: floralwhite;
+  padding: 20px;
+  border-radius: 40px;
+  width: min(60%, 400px);
+  cursor: pointer;
+  font-size: medium;
+}
+body > button > svg {
+  width: 1.5em;
+}
+.backdrop {
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  transition-delay: 100ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.form-container {
+  z-index: 3;
+  display: none;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(100dvw, 500px);
+  background-color: #fff;
+  height: 100dvh;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 0px 20px;
+}
+.form-container > form {
+  height: 70%;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid gray;
+  padding-top: 30px;
+}
+.form-container > form > label {
+  display: flex;
+  flex-direction: column;
+}
+.form-container > form > label > input {
+  margin-top: 10px;
+  border: 1px solid gray;
+  height: 40px;
+  padding: 10px;
+}
+.form-container > form > label > input:focus {
+  outline: 1px solid green;
+}
+.form-container button {
+  background-color: green;
+  color: floralwhite;
+  padding: 15px;
+  font-size: medium;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.read-or-unread {
+  display: flex;
+  gap: 30px;
+  accent-color: green;
+}
+.read-or-unread > label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.books-container {
+  flex: 1;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 10px;
+  padding: 20px;
+}
+.book {
+  outline: 1px solid rgb(235, 235, 235);
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  height: 200px;
+  padding: 20px;
+  position: relative;
+}
+.book > p:nth-child(3) {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-transform: uppercase;
+}
+.book > p:nth-child(3)[data-read="read"] {
+  color: green;
+}
+.book > p:nth-child(3)[data-read="unread"] {
+  color: red;
+}
+.book > button {
+  width: 30px;
+  height: 30px;
+  background: url(./delete.svg);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+}
